@@ -57,6 +57,9 @@ function showAppropriateImage(description){
         case ("Mist"):
             url = 'url(images/mist.jpg)'
             break;
+        case ("Fog"):
+            url = 'url(images/fog.jpg)'
+            break;
         case ("Drizzle"):
             url = 'url(images/drizzle.jpg)'
             break;
