@@ -113,7 +113,7 @@ window.addEventListener("load", () => {
         navigator.geolocation.getCurrentPosition(position => {
             longitude = position.coords.longitude;
             latitude = position.coords.latitude;
-            let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${appID}`
+            let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${appID}&units=${units}`
             fetch(api)
             .then(result => {
                 return result.json();         
