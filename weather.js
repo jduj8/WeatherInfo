@@ -67,7 +67,7 @@ function showAppropriateImage(description){
             url = 'url(images/storm.jpg)'
             break;
         case ("Thunderstorm"):
-            url = 'url(images/thunderstorm.jpg)'
+            url = 'url(images/thunderstorm.png)'
             break;
         case ("Haze"):
             url = 'url(images/haze.jpg)'
@@ -78,6 +78,10 @@ function showAppropriateImage(description){
         case ("Snow"):
             url = 'url(images/snow.jpg)'
             break;
+        case ("Smoke"):
+            url = 'url(images/smoke.jpg)'
+            break;
+
     }
 
     document.body.style.backgroundImage = url;

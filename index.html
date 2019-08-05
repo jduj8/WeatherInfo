@@ -44,7 +44,7 @@
             </div>
 
             <div class="card-footer text-muted footer" style="color:lightgray">
-                Copyright © 2019
+                Copyright © <span id="year"></span>
             </div>
            
 
@@ -57,6 +57,7 @@
                     var input = document.getElementById('inCityName');
                     var autocomplete = new google.maps.places.Autocomplete(input);
                 }
+                document.getElementById("year").innerHTML = new Date().getFullYear();
             </script>
             <!--AIzaSyAwY00rxtri75cj2ltPZEk51RRHtZT8c8U-->
             <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwY00rxtri75cj2ltPZEk51RRHtZT8c8U&libraries=places&callback=placesSearch"></script>
