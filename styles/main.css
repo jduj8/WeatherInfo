@@ -23,8 +23,8 @@ body{
 }
 
 
-.location{
-    min-width: 250px;
+.main-info{
+    min-width: 300px;
     min-height: 250px;
     text-align: center;
 }
@@ -58,9 +58,12 @@ body{
     font-size: 21px;
 }
 
-.weather-info{
+.additional-weather-info{
     min-width: 250px;
     align-items: center;
+    background-color:lavender;
+    padding: 10px;
+    color: darkblue;
 }
 
 @media (min-width: 150%){ 
@@ -88,7 +91,9 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    zoom: 100%;
 }
+
 
 #wrapper {
     min-height: 100%;
@@ -108,11 +113,22 @@ footer {
     width: 100%;
     height: 60px; /* Height of the footer */
     background-color:transparent;
+    color: whitesmoke;
     padding-top:21px;
-    border-top:solid;
-    border-width:1px;
-    font-size:medium;
+    font-size:small;
     font-family:'Bookman Old Style';
+}
+
+.temperature-degree{
+    color:darkorange;;
+    font-size: xx-large;
+    font-family: fantasy;
+}
+
+.temperature-description{
+    color: darkblue;
+    font-size: large;
+    margin-top: 10px;
 }
 
 

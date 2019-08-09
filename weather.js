@@ -24,14 +24,12 @@ function showResultFromServer(result){
     let temperatureDescription = document.querySelector(".temperature-description");
     let temperatureDegree = document.querySelector(".temperature-degree");
     let city = document.querySelector(".city");
-    let humidity = document.querySelector(".humidity");
-    let pressure = document.querySelector(".pressure");
-    let windSpeed = document.querySelector(".wind-speed")
+    let humidity = document.getElementById("humidity");
+    let pressure = document.getElementById("pressure");
+    let windSpeed = document.getElementById("wind-speed")
 
     let icon = document.getElementById("weatherIcon");
 
-    console.log(result);
-    temperatureDegree.textContent = "Temperature: " + Math.round(result.main.temp, 0) + " °C";
     humidity.textContent = "Humidity: " + result.main.humidity + " %";
     pressure.textContent = "Pressure: " + result.main.pressure + " hPa";
     windSpeed.textContent = "Wind speed: " + Math.round((result.wind.speed * 3600 * 0.001),0) + " km/h";
@@ -39,6 +37,7 @@ function showResultFromServer(result){
     city.textContent = result.name + ", " + result.sys.country;
     icon.src = 'https://openweathermap.org/img/w/' + result.weather[0].icon + '.png';
     temperatureDescription.textContent = result.weather[0].description;
+    temperatureDegree.textContent = Math.round(result.main.temp, 0) + " °C"
 
     showAppropriateImage(result.weather[0].main);
 }
@@ -92,7 +91,6 @@ var inCity = document.getElementById('inCityName');
 
 //searchWeatherByCity("Split");
 
-getWeatherOfMyPlace();
 
 btnShowWeather.addEventListener('click', () => {   
     searchWeatherByCity(inCity.value);
@@ -105,12 +103,6 @@ inCity.addEventListener("keyup", function(event) {
   }
 });
 
-function getWeatherOfMyPlace(){
-
-    
-    
-   
-}
 
 window.addEventListener("load", () => {
      if (navigator.geolocation){

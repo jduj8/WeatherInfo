@@ -14,7 +14,7 @@
 
         <body>
             
-
+            
             <div class="search">
                 <div class="input-group mb-3">
                     <input type="text"  id="inCityName" class="form-control" placeholder="City name" aria-label="City name" aria-describedby="button-addon2">
@@ -24,28 +24,30 @@
                 </div>
             </div>
 
-            <div class="card bg-light mb-3 location" style="max-width: 18rem;">
+            <div class="card bg-light mb-3 main-info" style="max-width: 18rem;">
                 <div class="card-header"><h3 class="city"> </h3></div>
                 <div class="card-body">
                     <img id="weatherIcon" src="..." alt="icon" class="img-thumbnail img">
-                    <h5 class="temperature-description"></h5>
+                    <p class="temperature-description"></p>
+                    <p class="temperature-degree"></p>
                 </div>
             </div>
 
-            <div class="card text-white bg-info mb-3 weather-info">
-                <h5 class="temperature-degree"></h5>  
-                <h5 class="humidity"></h5>
-                <h5 class="pressure"></h5>
-                <h5 class="wind-speed"></h5>                
+            <div class="card bg-light mb-3 additional-weather-info">
+                <h5 id="humidity"></h5>
+                <h5 id="pressure"></h5>
+                <h5 id="wind-speed"></h5>                
             </div>
 
             <div id="map">
 
             </div>
 
-            <div class="card-footer text-muted footer" style="color:lightgray">
+
+            <footer class="text-center text-muted">
                 Copyright © <span id="year"></span>
-            </div>
+            </footer>
+            
            
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
