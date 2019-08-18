@@ -4,19 +4,31 @@
 let appID = "6c23fc5ac70f6c19440d59bb8b94565d";
 let units = "metric"; //da temperature bude u C; za F koristiti imperial
 
+let errorMessage = document.getElementById('error-message')
+var btnShowWeather = document.getElementById('btnShowWeather');
+var inCity = document.getElementById('inCityName');
+
+let apiRequest = new XMLHttpRequest();
+
 
 
 function searchWeatherByCity(cityName){
- 
-    let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${appID}&units=${units}`;
-    fetch(api)
-        .then(result => {
-            return result.json();         
-        })
-        .then(result => {
-            showResultFromServer(result);
-        })
-   
+    apiRequest.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${appID}&units=${units}`);
+    apiRequest.send();  
+}
+
+apiRequest.onreadystatechange = () => {
+    if (apiRequest.readyState === 4){
+        
+        if (apiRequest.status === 404){
+            return errorMessage.textContent = 'City not found.'
+        }
+        
+        errorMessage.textContent = "";
+        const response = JSON.parse(apiRequest.response);
+        showResultFromServer(response);
+        
+    }
 }
 
 function showResultFromServer(result){
@@ -30,9 +42,9 @@ function showResultFromServer(result){
 
     let icon = document.getElementById("weatherIcon");
 
-    humidity.textContent = "Humidity: " + result.main.humidity + " %";
-    pressure.textContent = "Pressure: " + result.main.pressure + " hPa";
-    windSpeed.textContent = "Wind speed: " + Math.round((result.wind.speed * 3600 * 0.001),0) + " km/h";
+    humidity.textContent = " " + result.main.humidity + " %";
+    pressure.textContent = "  " + result.main.pressure + " hPa";
+    windSpeed.textContent = "  " + Math.round((result.wind.speed * 3600 * 0.001),0) + " km/h";
 
     city.textContent = result.name + ", " + result.sys.country;
     icon.src = 'https://openweathermap.org/img/w/' + result.weather[0].icon + '.png';
@@ -86,8 +98,7 @@ function showAppropriateImage(description){
     document.body.style.backgroundImage = url;
 }
 
-var btnShowWeather = document.getElementById('btnShowWeather');
-var inCity = document.getElementById('inCityName');
+
 
 //searchWeatherByCity("Split");
 
@@ -96,13 +107,21 @@ btnShowWeather.addEventListener('click', () => {
     searchWeatherByCity(inCity.value);
 });
 
-inCity.addEventListener("keyup", function(event) {
+inCity.addEventListener("keyup", ($event) => {
  
-  if (event.keyCode === 13) {   
-    btnShowWeather.click();
-  }
+    $event.preventDefault();
+    if (event.keyCode === 13) {   
+        btnShowWeather.click();
+    }
 });
 
+inCity.addEventListener('oninput', () => {
+    errorMessage.textContent = "";
+})
+
+function removeErrorMessage(){
+    errorMessage.textContent = "";
+}
 
 window.addEventListener("load", () => {
      if (navigator.geolocation){

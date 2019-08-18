@@ -1,0 +1,42 @@
+h1{
+    color: rgba(255,255,255,0.7);;
+}
+
+h5{
+    color: cornflowerblue;
+}
+
+body{
+    background-image: url("https://cdn.pixabay.com/photo/2014/05/06/13/41/blue-338858_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: fantasy;
+}
+
+.main-info{
+    min-height: 300px;
+}
+
+.weather-icon{
+    height: 75px;
+    width: 75px;
+
+}
+
+.temperature-description{
+    font-size: x-large;
+    color: blue;
+}
+
+.temperature-degree{
+    color:darkorange;;
+    font-size: xx-large;
+}
+
+
+.semi-transparent{
+    background:rgba(255,255,255,0.7);
+}
+
+
+
